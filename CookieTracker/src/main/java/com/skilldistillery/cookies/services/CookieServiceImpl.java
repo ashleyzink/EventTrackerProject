@@ -18,7 +18,7 @@ public class CookieServiceImpl implements CookieService {
 	
 	@Override
 	public List<Cookie> getAllCookies() {
-		return null;
+		return repo.findAll();
 	}
 
 	@Override
@@ -50,6 +50,7 @@ public class CookieServiceImpl implements CookieService {
 			if (cookie.getComment() != null) {managedCookie.setComment(cookie.getComment());}
 			if (cookie.getSource() != null) {managedCookie.setSource(cookie.getSource());}
 			if (cookie.getImageURL() != null) {managedCookie.setImageURL(cookie.getImageURL());}
+			repo.saveAndFlush(cookie);
  		}
 		
 		return managedCookie;
