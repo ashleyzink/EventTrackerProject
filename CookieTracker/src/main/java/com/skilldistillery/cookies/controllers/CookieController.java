@@ -14,8 +14,5 @@ public class CookieController {
 	@Autowired
 	private CookieService svc;
 	
-	@GetMapping("ping")
-	public String ping() {
-		return "pong!";
-	}
+	
 }

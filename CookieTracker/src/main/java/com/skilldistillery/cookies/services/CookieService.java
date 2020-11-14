@@ -7,5 +7,13 @@ import com.skilldistillery.cookies.entities.Cookie;
 public interface CookieService {
 	
 	List<Cookie> getAllCookies();
+	
+	Cookie findById(int id);
+	
+	Cookie createCookie(Cookie cookie);
+	
+	Cookie updateCookie(int id, Cookie cookie);
+	
+	boolean deleteCookie(int id);
 
 }
