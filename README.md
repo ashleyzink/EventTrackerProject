@@ -1,6 +1,6 @@
 # EventTrackerProject - Cookie Tracker :cookie:
 
-## MySQL Schema
+### MySQL Schema
 
 ![alt text](https://raw.githubusercontent.com/ashleyzink/EventTrackerProject/main/DB/cookiedb.png)
 
