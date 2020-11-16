@@ -68,4 +68,10 @@ public class CookieServiceImpl implements CookieService {
 		return deleted;
 	}
 
+	@Override
+	public List<Cookie> getCookiesByKeyword(String keyword) {
+			keyword = "%" + keyword + "%";
+			return repo.findByNameLikeOrDescriptionLike(keyword, keyword);
+	}
+
 }

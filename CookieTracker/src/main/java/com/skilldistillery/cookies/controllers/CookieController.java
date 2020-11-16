@@ -52,7 +52,8 @@ public class CookieController {
 			cookie = svc.createCookie(cookie);
 			response.setStatus(201);
 			StringBuffer url = request.getRequestURL();
-			url.append("/").append(cookie.getId());
+//			url.append("/").append(cookie.getId()); //The append("/") is adding an extra / to the URL 
+			url.append(cookie.getId());
 			String urlstr = url.toString();
 			response.setHeader("Location", urlstr);
 		} catch (Exception e) {
@@ -97,5 +98,10 @@ public class CookieController {
 		} catch (Exception e) {
 			response.setStatus(400);			
 		}
+	}
+	
+	@GetMapping("cookies/search/{keyword}")
+	public List<Cookie> getCookieByKeyword(@PathVariable String keyword) {
+		return svc.getCookiesByKeyword(keyword);
 	}
 }

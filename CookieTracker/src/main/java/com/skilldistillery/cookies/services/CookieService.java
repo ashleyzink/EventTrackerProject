@@ -15,5 +15,7 @@ public interface CookieService {
 	Cookie updateCookie(int id, Cookie cookie);
 	
 	boolean deleteCookie(int id);
+	
+	List<Cookie> getCookiesByKeyword(String keyword);
 
 }
