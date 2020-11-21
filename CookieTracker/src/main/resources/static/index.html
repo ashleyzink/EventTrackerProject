@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Cookie Crumbles</title>
-<script type="text/javascript" src="js/eventTracker.js"></script>
+    <meta charset="UTF-8">
+    <title>Cookie Crumbles</title>
+    <script type="text/javascript" src="js/eventTracker.js"></script>
 </head>
+
 <body>
 
-<h1>Cookie Tracker</h1>
+    <h1>Cookie Tracker</h1>
 
+    <form name="cookieForm">
+        <input type="number" name="id">
+        <button name="lookup">Cookie Info by Id</button>
+    </form>
+    <div id="output">
+        <div id="cookieData"></div>
+    </div>
+    <br>
+
+    <form name="newCookieForm">
+        Name of Cookie: <input type="text" name="name" placeholder="Favorite Cookie"><br>
+        Description: <input type="text" name="description" placeholder="Description"><br>
+        Ingredient List: <input type="text" name="ingredientList" placeholder="Ingredient List"><br>
+        Instructions: <input type="text" name="instructions" placeholder="Instructions"><br>
+        Prep Time: <input type="number" name="prepTimeMinutes" placeholder="Prep Time (minutes)"><br>
+        Bake Time: <input type="number" name="bakeTimeMinutes" placeholder="Bake Time (minutes)"><br>
+        Yield: <input type="number" name="yield" placeholder="Yield"><br>
+        Texture: <input type="text" name="texture" placeholder="Chewy"><br>
+        Comment: <input type="text" name="comment" placeholder="Comment"><br>
+        Source: <input type="text" name="source" placeholder="Link to Source"><br>
+        Image URL: <input type="text" name="imageURL" placeholder="URL to Cookie Image"><br>
+        <button type="submit" name="submit">Add new Cookie</button>
+    </form>
 </body>
+
 </html>
