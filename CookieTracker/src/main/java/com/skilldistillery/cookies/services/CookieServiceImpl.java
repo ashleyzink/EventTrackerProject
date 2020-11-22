@@ -50,7 +50,7 @@ public class CookieServiceImpl implements CookieService {
 			if (cookie.getComment() != null) {managedCookie.setComment(cookie.getComment());}
 			if (cookie.getSource() != null) {managedCookie.setSource(cookie.getSource());}
 			if (cookie.getImageURL() != null) {managedCookie.setImageURL(cookie.getImageURL());}
-			repo.saveAndFlush(cookie);
+			repo.saveAndFlush(managedCookie);
  		}
 		
 		return managedCookie;
