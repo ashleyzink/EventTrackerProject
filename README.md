@@ -32,10 +32,17 @@ This tracker was created to keep track of all the cookie recipes in my life usin
 * JSON
 * JUnit Testing
 
+Week 2 - Additional
+* JS
+* DOM Manipulation
+
 ### Lessons Learned
 
 I was very comfortable with the first part of this project. I know that won't be the case for the second part, and look forward to getting my hands dirty in JavaScript.
 
 ### How To Run
-
+Week 1
 Use the above routes to access the back end information. Next week there will be a website to access the database.
+
+Week 2
+When you first load the webpage, there is a table of the available cookies to view. By clicking on one of the cookie rows, it will display all of the cookie information available in the database, for that one cookie. The other option to get all of the information to display is by searching for the id # that is provided for each cookie in the table. There is also the option to add a new cookie to the database, or update an existing cookie.
