@@ -1,0 +1,84 @@
+<h1>The Cookie Jar</h1>
+
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Add a Cookie to The Cookie Jar
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <div *ngIf='!selected'>
+          <input type="text" name="name" placeholder="New Cookie" [(ngModel)]='newCookie.name'><br>
+          <textarea name="description" cols="30" rows="3" placeholder="Description" [(ngModel)]='newCookie.description'></textarea><br>
+          <textarea name="ingredientList" cols="30" rows="3" placeholder="Ingredient List" [(ngModel)]='newCookie.ingredientList'></textarea><br>
+          <textarea name="instructions" cols="30" rows="3" placeholder="Instructions" [(ngModel)]='newCookie.instructions'></textarea><br>
+          <input type="number" name="prepTimeMinutes" placeholder="Prep Time (Min)" [(ngModel)]='newCookie.prepTimeMinutes'><br>
+          <input type="number" name="bakeTimeMinutes" placeholder="Bake Time (Min)" [(ngModel)]='newCookie.bakeTimeMinutes'><br>
+          <input type="number" name="yield" placeholder="Yield" [(ngModel)]='newCookie.yield'><br>
+          <input type="text" name="texture" placeholder="Texture" [(ngModel)]='newCookie.texture'><br>
+          <input type="text" name="comment" placeholder="Comment" [(ngModel)]='newCookie.comment'><br>
+          <input type="text" name="source" placeholder="Source" [(ngModel)]='newCookie.source'><br>
+          <input type="text" name="imageURL" placeholder="Image URL" [(ngModel)]='newCookie.imageURL'><br>
+          <input (click)="addCookie(newCookie)" type="submit" value="Add New Cookie">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Show all the Cookies in The Cookie Jar
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <div *ngIf="!selected">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID#</th>
+                <th scope="col">Cookie Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Cookie Pics</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cookie of cookies">
+                <td>{{cookie.id}}</td>
+                <td>{{cookie.name}}</td>
+                  <td>{{cookie.description}}</td>
+                <td>
+                  <img [src]="cookie.imageURL" class="rounded" style="width:150px;height:150px;"/>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Make Changes to Cookies in The Cookie Jar
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        Update Form goes here!
+      </div>
+    </div>
+  </div> -->
+</div>
