@@ -1,58 +1,13 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Cookie Crumbles</title>
-    <script type="text/javascript" src="js/eventTracker.js"></script>
-</head>
-
+  <meta charset="utf-8">
+  <title>NgCookie</title>
+  <base href="/CookieTracker/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.237e3be9db90a7d7ef35.css"></head>
 <body>
-
-    <h1>Cookie Tracker</h1>
-
-    <form name="cookieForm">
-        <input type="number" name="id">
-        <button name="lookup">Cookie Info by Id</button>
-    </form>
-    <div id="output">
-        <div id="cookieData"></div>
-        
-    </div>
-    <br>
-
-    <form name="newCookieForm">
-        Name of Cookie: <input type="text" name="name" placeholder="Favorite Cookie"><br>
-        Description: <input type="text" name="description" placeholder="Description"><br>
-        Ingredient List: <input type="text" name="ingredientList" placeholder="Ingredient List"><br>
-        Instructions: <input type="text" name="instructions" placeholder="Instructions"><br>
-        Prep Time: <input type="number" name="prepTimeMinutes" placeholder="Prep Time (minutes)"><br>
-        Bake Time: <input type="number" name="bakeTimeMinutes" placeholder="Bake Time (minutes)"><br>
-        Yield: <input type="number" name="yield" placeholder="Yield"><br>
-        Texture: <input type="text" name="texture" placeholder="Chewy"><br>
-        Comment: <input type="text" name="comment" placeholder="Comment"><br>
-        Source: <input type="text" name="source" placeholder="Link to Source"><br>
-        Image URL: <input type="text" name="imageURL" placeholder="URL to Cookie Image"><br>
-        <button type="submit" name="submit">Add new Cookie</button>
-    </form>
-    <br>
-    <br>
-    <form name="updateCookieForm">
-        <input type="hidden" name="id" value="${id}">
-        Name of Cookie: <input type="text" name="name" placeholder="Name"><br>
-        Description: <input type="text" name="description" placeholder="Description"><br>
-        Ingredient List: <input type="text" name="ingredientList" placeholder="Ingredient List"><br>
-        Instructions: <input type="text" name="instructions" placeholder="Instructions"><br>
-        Prep Time: <input type="number" name="prepTimeMinutes" placeholder="Prep Time (minutes)"><br>
-        Bake Time: <input type="number" name="bakeTimeMinutes" placeholder="Bake Time (minutes)"><br>
-        Yield: <input type="number" name="yield" placeholder="Yield"><br>
-        Texture: <input type="text" name="texture" placeholder="Chewy"><br>
-        Comment: <input type="text" name="comment" placeholder="Comment"><br>
-        Source: <input type="text" name="source" placeholder="Link to Source"><br>
-        Image URL: <input type="text" name="imageURL" placeholder="URL to Cookie Image"><br>
-        <button type="submit" name="submit" value="${cookie.id}">Update Cookie</button>
-    </form>
-
-</body>
-
+  <app-root></app-root>
+<script src="runtime.359d5ee4682f20e936e9.js" defer></script><script src="polyfills.f43954ace77eaf1b4591.js" defer></script><script src="main.eb4c38f58bb8aece4eea.js" defer></script></body>
 </html>

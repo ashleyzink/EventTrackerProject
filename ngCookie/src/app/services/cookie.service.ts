@@ -3,13 +3,16 @@ import { HttpClient } from '@angular/common/http'
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Cookie } from '../models/cookie';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CookieService {
 
-  private baseUrl = 'http://localhost:8085/';
+  // private baseUrl = 'http://localhost:8085/';
+  // private baseUrl = '/CookieTracker/';
+  baseUrl = environment.baseUrl;
   private url = this.baseUrl + 'api/cookies';
 
   constructor(private http: HttpClient) { }
