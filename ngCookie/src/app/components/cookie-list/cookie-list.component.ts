@@ -13,11 +13,21 @@ export class CookieListComponent implements OnInit {
   selected: Cookie = null;
   newCookie: Cookie = new Cookie();
   editCookie: Cookie = null;
+  texture = [
+    'all',
+    'chewy',
+    'cakey',
+    'crispy',
+    'short'
+  ];
+
+  selectedTexture = 'all';
 
   constructor(private cookieService: CookieService) { }
 
   ngOnInit(): void {
-    this.loadCookie();
+      this.loadCookie();
+
   }
 
   loadCookie(): void{
@@ -81,9 +91,15 @@ export class CookieListComponent implements OnInit {
   }
 
   displayCookie(cookie: Cookie) {
+    console.log(this.selected);
+    console.log(cookie);
+
     this.selected = cookie;
   }
 
+  displayTable(cookie: Cookie): void {
+    this.selected = null;
+  }
 
 
 

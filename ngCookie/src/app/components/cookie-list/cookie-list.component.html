@@ -1,84 +1,98 @@
-<h1>The Cookie Jar</h1>
 
-<div class="accordion" id="accordionExample">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Add a Cookie to The Cookie Jar
-        </button>
-      </h2>
-    </div>
+<div class="container-fluid" style="background-image: url(https://image.shutterstock.com/image-photo/chocolate-chip-cookie-glass-jar-260nw-1404308999.jpg); background-repeat:no-repeat; background-position: left;">
 
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
-        <div *ngIf='!selected'>
-          <input type="text" name="name" placeholder="New Cookie" [(ngModel)]='newCookie.name'><br>
-          <textarea name="description" cols="30" rows="3" placeholder="Description" [(ngModel)]='newCookie.description'></textarea><br>
-          <textarea name="ingredientList" cols="30" rows="3" placeholder="Ingredient List" [(ngModel)]='newCookie.ingredientList'></textarea><br>
-          <textarea name="instructions" cols="30" rows="3" placeholder="Instructions" [(ngModel)]='newCookie.instructions'></textarea><br>
-          <input type="number" name="prepTimeMinutes" placeholder="Prep Time (Min)" [(ngModel)]='newCookie.prepTimeMinutes'><br>
-          <input type="number" name="bakeTimeMinutes" placeholder="Bake Time (Min)" [(ngModel)]='newCookie.bakeTimeMinutes'><br>
-          <input type="number" name="yield" placeholder="Yield" [(ngModel)]='newCookie.yield'><br>
-          <input type="text" name="texture" placeholder="Texture" [(ngModel)]='newCookie.texture'><br>
-          <input type="text" name="comment" placeholder="Comment" [(ngModel)]='newCookie.comment'><br>
-          <input type="text" name="source" placeholder="Source" [(ngModel)]='newCookie.source'><br>
-          <input type="text" name="imageURL" placeholder="Image URL" [(ngModel)]='newCookie.imageURL'><br>
-          <input (click)="addCookie(newCookie)" type="submit" value="Add New Cookie">
-        </div>
-      </div>
-    </div>
-  </div>
+  <h1 style="text-align: center">The Cookie Jar</h1> <h3 style="text-align: center">Cookies in The Jar: <span>{{cookieCount()}}</span></h3>
+</div>
 
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
 
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Show all the Cookies in The Cookie Jar
-        </button>
-      </h2>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body">
-        <div *ngIf="!selected">
-          <table class="table table-hover">
+  <ngb-panel title="Show All Cookies in The Cookie Jar">
+    <ng-template ngbPanelContent>
+      <div>
+        <span *ngFor="let type of texture" (click)= "selectedTexture = type">{{type}} | </span>
+        <table *ngIf="!selected" class="table table-hover">
             <thead>
               <tr>
                 <th scope="col">ID#</th>
                 <th scope="col">Cookie Name</th>
                 <th scope="col">Description</th>
                 <th scope="col">Cookie Pics</th>
+                <th scope="col">Delete Cookie</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let cookie of cookies">
+              <tr *ngFor="let cookie of cookies" >
                 <td>{{cookie.id}}</td>
-                <td>{{cookie.name}}</td>
+                <td (click)='displayCookie(cookie)'>{{cookie.name}}</td>
                   <td>{{cookie.description}}</td>
-                <td>
-                  <img [src]="cookie.imageURL" class="rounded" style="width:150px;height:150px;"/>
-                </td>
+                  <td>
+                  <img [src]="cookie.imageURL" class="rounded" style="width:100px;height:100px;"/>
+                  </td>
+                  <td><button (click)="deleteCookie(cookie.id)" type="button" class="btn btn-danger" ngbPopover="Clicking here permanently deletes cookie" triggers="mouseenter:mouseleave" popoverTitle="Are you sure?">X</button></td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
-    </div>
-  </div>
+      </ng-template>
+    </ngb-panel>
 
-  <!-- <div class="card">
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Make Changes to Cookies in The Cookie Jar
-        </button>
-      </h2>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-        Update Form goes here!
+  <ngb-panel title="Add a Cookie to The Cookie Jar">
+    <ng-template ngbPanelContent>
+      <div *ngIf='!selected'>
+        <input type="text" name="name" placeholder="New Cookie" [(ngModel)]='newCookie.name'><br>
+        <textarea name="description" cols="30" rows="3" placeholder="Description" [(ngModel)]='newCookie.description'></textarea><br>
+        <textarea name="ingredientList" cols="30" rows="3" placeholder="Ingredient List" [(ngModel)]='newCookie.ingredientList'></textarea><br>
+        <textarea name="instructions" cols="30" rows="3" placeholder="Instructions" [(ngModel)]='newCookie.instructions'></textarea><br>
+        <input type="number" name="prepTimeMinutes" placeholder="Prep Time (Min)" [(ngModel)]='newCookie.prepTimeMinutes'><br>
+        <input type="number" name="bakeTimeMinutes" placeholder="Bake Time (Min)" [(ngModel)]='newCookie.bakeTimeMinutes'><br>
+        <input type="number" name="yield" placeholder="Yield" [(ngModel)]='newCookie.yield'><br>
+        <input type="text" name="texture" placeholder="Texture" [(ngModel)]='newCookie.texture'><br>
+        <input type="text" name="comment" placeholder="Comment" [(ngModel)]='newCookie.comment'><br>
+        <input type="text" name="source" placeholder="Source" [(ngModel)]='newCookie.source'><br>
+        <input type="text" name="imageURL" placeholder="Image URL" [(ngModel)]='newCookie.imageURL'><br>
+        <input (click)="addCookie(newCookie)" type="submit" value="Add New Cookie">
       </div>
+    </ng-template>
+  </ngb-panel>
+
+
+
+
+  </ngb-accordion>
+
+  <div *ngIf='selected && !editCookie'>
+    <h4>{{selected.id}}: {{selected.name}}</h4><br>
+      <h6>{{selected.description}}</h6><br>
+      Ingredient List: <br>{{selected.ingredientList}}<br><br>
+      Instructions: <br>{{selected.instructions}}<br><br>
+      Prep Time: {{selected.prepTimeMinutes}} minutes<br>
+      Bake Time: {{selected.bakeTimeMinutes}} minutes<br>
+      Yield: {{selected.yield}} cookies<br>
+      Texture: {{selected.texture}}<br>
+      Notes About Cookie: {{selected.comment}}<br>
+      <a href={{selected.source}}>Source Link for {{selected.name}}</a><br>
+      <img [src]="selected.imageURL" class="rounded" style="width:200px;height:200px;" alt="{{selected.name}}"><br>
+      <button (click)='setEditCookie()'>Make Changes to Cookie</button><br>
+      <button (click)='displayTable()'>Back to Full Cookie List</button>
     </div>
-  </div> -->
-</div>
+
+    <div *ngIf='editCookie'>
+      <h4>{{selected.id}} {{selected.name}}</h4><br>
+      <input type="text" name="name" placeholder="New Cookie" [(ngModel)]='editCookie.name'><br>
+        <textarea name="description" cols="30" rows="3" placeholder="Description" [(ngModel)]='editCookie.description'></textarea><br>
+        <textarea name="ingredientList" cols="30" rows="3" placeholder="Ingredient List" [(ngModel)]='editCookie.ingredientList'></textarea><br>
+        <textarea name="instructions" cols="30" rows="3" placeholder="Instructions" [(ngModel)]='editCookie.instructions'></textarea><br>
+        <input type="number" name="prepTimeMinutes" placeholder="Prep Time (Min)" [(ngModel)]='editCookie.prepTimeMinutes'><br>
+        <input type="number" name="bakeTimeMinutes" placeholder="Bake Time (Min)" [(ngModel)]='editCookie.bakeTimeMinutes'><br>
+        <input type="number" name="yield" placeholder="Yield" [(ngModel)]='editCookie.yield'><br>
+        <input type="text" name="texture" placeholder="Texture" [(ngModel)]='editCookie.texture'><br>
+        <input type="text" name="comment" placeholder="Comment" [(ngModel)]='editCookie.comment'><br>
+        <input type="text" name="source" placeholder="Source" [(ngModel)]='editCookie.source'><br>
+        <input type="text" name="imageURL" placeholder="Image URL" [(ngModel)]='editCookie.imageURL'><br>
+      <button (click)='updateCookie(editCookie)'>Save</button>
+      <button (click)='editCookie=null'>Cancel</button>
+    </div>
+    <!-- <div *ngIf='!selected'>
+      <input type="text" name="name" placeholder="New Cookie" [(ngModel)]='newCookie.name'>
+      <input (click)="addCookie(newCookie)" type="submit" value="Add Cookie">
+    </div> -->

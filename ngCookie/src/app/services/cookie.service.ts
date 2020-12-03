@@ -23,6 +23,15 @@ export class CookieService {
     );
   }
 
+  show(cookieId: number): Observable<Cookie> {
+    return this.http.get<Cookie>(`${this.url}/${cookieId}`).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError('CookieService.show(): Error retrieving cookie ' + cookieId);
+      })
+    );
+  }
+
   create(cookie: Cookie): Observable<Cookie> {
     // cookie.completed = false;
     return this.http.post<Cookie>(this.url, cookie).pipe(

@@ -1,4 +1,4 @@
-.accordion {
+/* .accordion {
   background-color: #eee;
   color: #444;
   cursor: pointer;
@@ -8,4 +8,10 @@
   border: 0.5rem outset dimgrey;
   outline: 0.5rem solid lightslategray;
   transition: 0.4s;
+} */
+
+div.sm-jumbotron {
+  padding: 2rem;
+  background-color: #38547b;
+  color: #ffffff;
 }
