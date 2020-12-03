@@ -8,11 +8,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CookieListComponent } from './components/cookie-list/cookie-list.component';
 import { FormsModule } from '@angular/forms';
 import { CookieService } from './services/cookie.service';
+import { CookieTexturePipe } from './pipes/cookie-texture.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CookieListComponent
+    CookieListComponent,
+    CookieTexturePipe
   ],
   imports: [
     BrowserModule,
